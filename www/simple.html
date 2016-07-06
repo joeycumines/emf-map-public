@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Map Test</title>
+		<meta name="viewport" content="initial-scale=1.0">
+		<meta charset="utf-8">
+		<style>
+			html, body {
+				height: 100%;
+				margin: 0;
+				padding: 0;
+			}
+			#map {
+				height: 100%;
+			}
+			#wrapper {
+				position: relative;
+				height: 100%;
+			}
+		</style>
+	</head>
+	<body>
+		<!--We have here a full screen map, but by adding the scripts + implementation to any web page with a <div id="map"></div> should work. -->
+		<div id="wrapper">
+			<div style="position: absolute; top: 8px; right: 16px; z-index: 99;">
+				<h2>Grants by Primary Institution:</h2>
+				<div id="legend"></div>
+			</div>
+			<div id="map"></div>
+		</div>
+		<input type="hidden" id="ourJSON" value="%7B%22brisbane%2C%20australia%22%3A%7B%22name%22%3A%22brisbane%2C%20australia%22%2C%22coords%22%3A%7B%22lat%22%3A-27.4697707%2C%22lng%22%3A153.02512350000006%7D%2C%22geocoding%22%3A%5B%7B%22formatted_address%22%3A%22Brisbane%20QLD%2C%20Australia%22%2C%22geometry%22%3A%7B%22location%22%3A%7B%22lat%22%3A-27.4697707%2C%22lng%22%3A153.02512350000006%7D%2C%22viewport%22%3A%7B%22south%22%3A-27.7674408%2C%22west%22%3A152.66852270000004%2C%22north%22%3A-26.9968449%2C%22east%22%3A153.31787029999998%7D%7D%2C%22icon%22%3A%22https%3A//maps.gstatic.com/mapfiles/place_api/icons/geocode-71.png%22%2C%22id%22%3A%22109dda35f4c11b490051baeae7f7474f51697ab0%22%2C%22name%22%3A%22Brisbane%22%2C%22photos%22%3A%5B%7B%22height%22%3A1365%2C%22html_attributions%22%3A%5B%22%3Ca%20href%3D%5C%22https%3A//maps.google.com/maps/contrib/105932078588305868215/photos%5C%22%3EMaksym%20Kozlenko%3C/a%3E%22%5D%2C%22width%22%3A2048%7D%5D%2C%22place_id%22%3A%22ChIJM9KTrJpXkWsRQK_e81qjAgQ%22%2C%22reference%22%3A%22CoQBdAAAAOI-myg-NSxFnz2ChlVu6WeqswieUArG7ICxAqlxsJat-jb6_RSf37W6VoShb56c2Rxn_vj5o5MLDkw_0TjzqlA89Ak9un3gZM1s973jcSTfhnvwygymCZvSPh-DpjaRWQQNvsihX3JFsOi1ekamyB3liXVsM8271ga6wJz3wHCrEhD7SO16ukqJCeSPaoY8hZYnGhS3aSlSa4ljtjViZjiX_DJuEj3WLQ%22%2C%22types%22%3A%5B%22colloquial_area%22%2C%22locality%22%2C%22political%22%5D%2C%22html_attributions%22%3A%5B%5D%7D%5D%2C%22neighbours%22%3A%7B%22melbourne%2C%20australia%22%3A%7B%223%22%3Atrue%7D%2C%22sydney%2C%20australia%22%3A%7B%223%22%3Atrue%2C%224%22%3Atrue%7D%7D%2C%22legend%22%3A%5B%7B%22name%22%3A%22%231%20brisbane%2C%20australia%22%2C%22value%22%3A3%7D%2C%7B%22name%22%3A%22%232%20sydney%2C%20australia%22%2C%22value%22%3A4%7D%5D%7D%2C%22melbourne%2C%20australia%22%3A%7B%22name%22%3A%22melbourne%2C%20australia%22%2C%22coords%22%3A%7B%22lat%22%3A-37.8162789%2C%22lng%22%3A144.96424590000004%7D%2C%22geocoding%22%3A%5B%7B%22formatted_address%22%3A%22Melbourne%20VIC%2C%20Australia%22%2C%22geometry%22%3A%7B%22location%22%3A%7B%22lat%22%3A-37.8162789%2C%22lng%22%3A144.96424590000004%7D%2C%22viewport%22%3A%7B%22south%22%3A-38.4338593%2C%22west%22%3A144.59374179999998%2C%22north%22%3A-37.5112737%2C%22east%22%3A145.51252869999996%7D%7D%2C%22icon%22%3A%22https%3A//maps.gstatic.com/mapfiles/place_api/icons/geocode-71.png%22%2C%22id%22%3A%22e52b9331affbeac8eaae6da1c168d49708ba7c36%22%2C%22name%22%3A%22Melbourne%22%2C%22photos%22%3A%5B%7B%22height%22%3A2988%2C%22html_attributions%22%3A%5B%22%3Ca%20href%3D%5C%22https%3A//maps.google.com/maps/contrib/109899497342395082002/photos%5C%22%3ENicholas%20Raftopoulos%3C/a%3E%22%5D%2C%22width%22%3A5312%7D%5D%2C%22place_id%22%3A%22ChIJ90260rVG1moRkM2MIXVWBAQ%22%2C%22reference%22%3A%22CoQBdQAAAGNAi3bUXj3_kQr43JZkYPbGPmT8gHbuft9rh8ulhhOFfJqSMMI2nVQR5lNJuwammmvRS-LPrYvTSw0Gg8gOpIUIV0mlq9sjY8Fppv6fPwqSWM3H9lz8vMHAtEzfCEUBhXo9jOouahLNOfK4eRolslgEWOsWUERNr0soSU2eHLCSEhBAdbDhrPhBRg7Ghe39OqEvGhSQU06Xjn_4CMSKbt8IN3MvS78w8A%22%2C%22types%22%3A%5B%22colloquial_area%22%2C%22locality%22%2C%22political%22%5D%2C%22html_attributions%22%3A%5B%5D%7D%5D%2C%22neighbours%22%3A%7B%22brisbane%2C%20australia%22%3A%7B%223%22%3Atrue%7D%2C%22sydney%2C%20australia%22%3A%7B%224%22%3Atrue%7D%7D%2C%22legend%22%3A%5B%7B%22name%22%3A%22%231%20brisbane%2C%20australia%22%2C%22value%22%3A3%7D%2C%7B%22name%22%3A%22%232%20sydney%2C%20australia%22%2C%22value%22%3A4%7D%5D%7D%2C%22sydney%2C%20australia%22%3A%7B%22name%22%3A%22sydney%2C%20australia%22%2C%22coords%22%3A%7B%22lat%22%3A-33.8688197%2C%22lng%22%3A151.20929550000005%7D%2C%22geocoding%22%3A%5B%7B%22formatted_address%22%3A%22Sydney%20NSW%2C%20Australia%22%2C%22geometry%22%3A%7B%22location%22%3A%7B%22lat%22%3A-33.8688197%2C%22lng%22%3A151.20929550000005%7D%2C%22viewport%22%3A%7B%22south%22%3A-34.1183469%2C%22west%22%3A150.52092859999993%2C%22north%22%3A-33.5782356%2C%22east%22%3A151.3430194%7D%7D%2C%22icon%22%3A%22https%3A//maps.gstatic.com/mapfiles/place_api/icons/geocode-71.png%22%2C%22id%22%3A%22044785c67d3ee62545861361f8173af6c02f4fae%22%2C%22name%22%3A%22Sydney%22%2C%22photos%22%3A%5B%7B%22height%22%3A2448%2C%22html_attributions%22%3A%5B%22%3Ca%20href%3D%5C%22https%3A//maps.google.com/maps/contrib/118410684014024830328/photos%5C%22%3EMichael%20Mak%3C/a%3E%22%5D%2C%22width%22%3A3264%7D%5D%2C%22place_id%22%3A%22ChIJP3Sa8ziYEmsRUKgyFmh9AQM%22%2C%22reference%22%3A%22CoQBcgAAAAAnWe0WQ1CZ7NtJWQRwZj8kpAbwnmdmkcuaZD2wjTh-2s9kcsZbQZColEkLO04YkXtba7ks_kQeSrfh0OTkcJrkpuEE5E8VrHdnS-qSTgp53PZJtSQq4n5ek0T1l9vZesSh_FSiTTbeQbkB07d2fHKVMFYleNPD8Mm0m0DsOkf9EhCke0L-N0-Z5X8TpNlrHBxPGhSDFwzJPTTEzg4CzZXiuiPEC_TfMg%22%2C%22types%22%3A%5B%22colloquial_area%22%2C%22locality%22%2C%22political%22%5D%2C%22html_attributions%22%3A%5B%5D%7D%5D%2C%22neighbours%22%3A%7B%22brisbane%2C%20australia%22%3A%7B%223%22%3Atrue%2C%224%22%3Atrue%7D%2C%22melbourne%2C%20australia%22%3A%7B%224%22%3Atrue%7D%2C%22darwin%2C%20australia%22%3A%7B%224%22%3Atrue%7D%7D%2C%22legend%22%3A%5B%7B%22name%22%3A%22%231%20brisbane%2C%20australia%22%2C%22value%22%3A3%7D%2C%7B%22name%22%3A%22%232%20sydney%2C%20australia%22%2C%22value%22%3A4%7D%5D%7D%2C%22darwin%2C%20australia%22%3A%7B%22name%22%3A%22darwin%2C%20australia%22%2C%22coords%22%3A%7B%22lat%22%3A-12.4634403%2C%22lng%22%3A130.84564180000007%7D%2C%22geocoding%22%3A%5B%7B%22formatted_address%22%3A%22Darwin%20NT%2C%20Australia%22%2C%22geometry%22%3A%7B%22location%22%3A%7B%22lat%22%3A-12.4634403%2C%22lng%22%3A130.84564180000007%7D%2C%22viewport%22%3A%7B%22south%22%3A-12.5217416%2C%22west%22%3A130.8151196%2C%22north%22%3A-12.3300599%2C%22east%22%3A131.0514998%7D%7D%2C%22icon%22%3A%22https%3A//maps.gstatic.com/mapfiles/place_api/icons/geocode-71.png%22%2C%22id%22%3A%22b8f4baf363a96fbe300e4d0704ecf3b816992365%22%2C%22name%22%3A%22Darwin%22%2C%22photos%22%3A%5B%7B%22height%22%3A3456%2C%22html_attributions%22%3A%5B%22%3Ca%20href%3D%5C%22https%3A//maps.google.com/maps/contrib/108328944986378448362/photos%5C%22%3EStanislas%20T%3C/a%3E%22%5D%2C%22width%22%3A5184%7D%5D%2C%22place_id%22%3A%22ChIJPwRZn_ygwCwRIHwkKqgXAgM%22%2C%22reference%22%3A%22CoQBcQAAACzblKKZb2LtULwaADKW5COheDU9OOW9t-eibGr5CUwHeIyTHkgB_zch2fss_QBTN3G3lWLNBvw_a3iUviiiypOUSTXzQoh9w1LAywEmp9BfdFLamiqAvu2WAqYD0vqk8Ti4OH89l6tXEV0LmLkUkwDwvtZKFq0V-Uvo6WYRuGvVEhDeSe1lnTWHQQy_00ipApE_GhRy7CirqkvKeNaPFvAwIck608KInw%22%2C%22types%22%3A%5B%22colloquial_area%22%2C%22locality%22%2C%22political%22%5D%2C%22html_attributions%22%3A%5B%5D%7D%5D%2C%22neighbours%22%3A%7B%22sydney%2C%20australia%22%3A%7B%224%22%3Atrue%7D%7D%2C%22legend%22%3A%5B%7B%22name%22%3A%22%231%20brisbane%2C%20australia%22%2C%22value%22%3A3%7D%2C%7B%22name%22%3A%22%232%20sydney%2C%20australia%22%2C%22value%22%3A4%7D%5D%7D%7D">
+		<!--The scripts here are required dependencies for the application to work.-->
+		<script src="js/map.js"></script>
+		<script src="js/display.js"></script>
+		<!--Implementation-->
+		<script>
+			/**
+				Initializes this simple example.
+				This runs after the map API is loaded.
+			*/
+			function initMapOverload() {
+				//call the initMap() defined in map.js
+				initMap();
+				//create a json from the hidden input ourJSON.
+				displayedJSON = JSON.parse(unescape(document.getElementById('ourJSON').value));
+				//display on the map
+				displayJSON('legend');
+			}
+			
+		</script>
+		<!--replacing the src with "https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap&libraries=places"
+			is not necessary, but recommended https://developers.google.com/maps/signup -->
+		<script src="https://maps.googleapis.com/maps/api/js?callback=initMapOverload&libraries=places"
+		async defer></script>
+	</body>
+</html>

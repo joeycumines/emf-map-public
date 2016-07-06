@@ -1,0 +1,12 @@
+To use this example
+----------------------------------------------------------
+This map api takes a csv file (spreadsheet) in the format specified by the example
+"PI CI and Sites_R24.xlsx". To get this format, save as .csv from Microsoft excel.
+
+Loading place names and positions from google maps may take a while.
+
+Once loaded and you visually see the links on the map, then the data can be saved
+to .json, which removes the need for (costly) google maps queries. This example
+will attempt to display such a file if the user selects it with 'choose file'.
+
+To see an example that just displays the map, see simple.html.

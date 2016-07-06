@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Map Test</title>
+		<meta name="viewport" content="initial-scale=1.0">
+		<meta charset="utf-8">
+		<style>
+			html, body {
+				height: 100%;
+				margin: 0;
+				padding: 0;
+			}
+			#map {
+				height: 100%;
+			}
+			#wrapper {
+				position: relative;
+				height: 100%;
+			}
+		</style>
+	</head>
+	<body>
+		<!--We have here a full screen map, but by adding the scripts + implementation to any web page with a <div id="map"></div> should work. -->
+		<div id="wrapper">
+			<div style="position: absolute; top: 8px; right: 16px; z-index: 99;">
+				<div id="statusWindow"><p id="statusText">STATUS: No file.</p></div>
+				<input type="file" id="input" onchange="handleFiles(this.files);"><br>
+				<button onclick="if (displayedJSON != null) saveJSONToFile(displayedJSON, 'map.json');">Save to file</button><br>
+				<button onclick="var blob = new Blob([escape(JSON.stringify(displayedJSON))], {type: 'text/plain;charset=utf-8'}); saveAs(blob, 'escaped_json.txt');">Save Escaped JSON</button><br>
+				<a href="help.txt">Help</a>
+				<div id="legend"></div>
+			</div>
+			<div id="map"></div>
+		</div>
+		<!--The scripts here are required dependencies for the application to work.-->
+		<script src="js/csvToArray.v2.1.min.js"></script>
+		<script src="js/FileSaver.js"></script>
+		<script src="js/Blob.js"></script>
+		<script src="js/map.js"></script>
+		<script src="js/data.js"></script>
+		<script src="js/display.js"></script>
+		<!--replacing the src with "https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap&libraries=places"
+			is not necessary, but recommended https://developers.google.com/maps/signup -->
+		<script src="https://maps.googleapis.com/maps/api/js?callback=initMap&libraries=places"
+		async defer></script>
+	</body>
+</html>
